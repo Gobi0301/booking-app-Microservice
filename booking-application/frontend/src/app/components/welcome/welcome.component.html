@@ -1,0 +1,25 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div class="mt-5 w-50">
+    <h1 class="text-center">
+      Welcome {{ (customerDetail$ | async)?.firstName}}!
+    </h1>
+  </div>
+
+  <mat-card class="mt-5 w-50">
+    <mat-card-content fxLayout="row">
+      <div fxFlex="50" class="text-right pr-3">
+        <h4>Fullname</h4>
+        <h4>Email</h4>
+        <h4>User ID</h4>
+      </div>
+      <div fxFlex="50" class="text-left pl-3">
+        <h4>
+          {{ (customerDetail$ | async)?.firstName}}
+          {{ (customerDetail$ | async)?.lastName}}
+        </h4>
+        <h4>{{ (customerDetail$ | async)?.email}}</h4>
+        <h4>{{ (customerDetail$ | async)?.custNumber}}</h4>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
