@@ -68,7 +68,7 @@ public class BookingService {
 		booking.setRoomPrice(bookingRequest.getRoomPrice());
 		booking.setBookingNumber(randomBookingNumber(10));
 		booking.setBookedOn(df.format(new Date()));
-		booking.setStatus(BookingStatus.BOOKED.status);
+		booking.setStatus(BookingStatus.NOTBOOKED.status);
 		
 		try {
 			bookingRepository.insert(booking);
@@ -216,7 +216,7 @@ public class BookingService {
 			String token = jwtService.token("booking@techzoss.co.tz");
 			String uri = env.getProperty("application.service.payment.url","http://127.0.0.1:8083");
 			TransactionDetailDto response = webClient.get()
-					.uri(String.format("%s/api/transcation/%s", uri,id))
+					.uri(String.format("%s/api/transaction/%s", uri,id))
 					.headers(h->h.setBearerAuth(token))
 					.retrieve().bodyToMono(TransactionDetailDto.class)
 					.block();

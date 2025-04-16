@@ -19,7 +19,7 @@ public class JwtToken {
 	@Value("${application.security.jwt-token.secret: 5970337336763979244226452948404D62516554}")
 	private String SECRET;
 	
-	private final Integer VALIDITY_MINUTES = 1;
+	private final Integer VALIDITY_MINUTES = 120;
 	
 	public String token(String email) {
 		
